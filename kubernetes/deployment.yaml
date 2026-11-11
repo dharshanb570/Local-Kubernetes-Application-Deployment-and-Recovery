@@ -1,26 +1,26 @@
+
 apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: my-kubernetes-app
+  name: local-k8s-app
 
 spec:
   replicas: 2
 
   selector:
     matchLabels:
-      app: my-kubernetes-app
+      app: local-k8s-app
 
   template:
     metadata:
       labels:
-        app: my-kubernetes-app
+        app: local-k8s-app
 
     spec:
       containers:
         - name: flask-container
-          image: my-kubernetes-app:v1
+          image: local-k8s-demo:v1
           imagePullPolicy: Never
           ports:
             - containerPort: 5000
-
